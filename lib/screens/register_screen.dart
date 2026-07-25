@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
-
 import '../services/auth_service.dart';
 import '../utils/page_transition.dart';
 import 'dashboard_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-
   @override
   State<RegisterScreen> createState() =>
       _RegisterScreenState();
 }
-
 class _RegisterScreenState
     extends State<RegisterScreen> {
-
   final emailController =
       TextEditingController();
-
   final passwordController =
       TextEditingController();
-
   final AuthService authService =
       AuthService();
-
   Future<void> register() async {
-
     if (emailController.text.trim().isEmpty ||
         passwordController.text.trim().isEmpty) {
-
       ScaffoldMessenger.of(context)
           .showSnackBar(
         const SnackBar(
@@ -37,28 +28,21 @@ class _RegisterScreenState
           ),
         ),
       );
-
       return;
     }
-
     try {
-
       await authService.register(
         emailController.text.trim(),
         passwordController.text.trim(),
       );
-
       if (!mounted) return;
-
       Navigator.pushReplacement(
         context,
         PageTransition.createRoute(
           const DashboardScreen(),
         ),
       );
-
     } catch (e) {
-
       ScaffoldMessenger.of(context)
           .showSnackBar(
         SnackBar(
@@ -69,14 +53,10 @@ class _RegisterScreenState
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       body: Container(
-
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -87,20 +67,14 @@ class _RegisterScreenState
             ],
           ),
         ),
-
         child: SafeArea(
-
           child: SingleChildScrollView(
-
             child: Padding(
               padding:
                   const EdgeInsets.all(20),
-
               child: Column(
                 children: [
-
                   const SizedBox(height: 30),
-
                   Hero(
                     tag: "fitnessLogo",
                     child: Container(
@@ -118,9 +92,7 @@ class _RegisterScreenState
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 20),
-
                   const Text(
                     "Create Account",
                     style: TextStyle(
@@ -130,9 +102,7 @@ class _RegisterScreenState
                       color: Colors.white,
                     ),
                   ),
-
                   const SizedBox(height: 40),
-
                   Card(
                     elevation: 8,
                     shape:
@@ -147,7 +117,6 @@ class _RegisterScreenState
                               20),
                       child: Column(
                         children: [
-
                           TextField(
                             controller:
                                 emailController,
@@ -158,10 +127,8 @@ class _RegisterScreenState
                                   Icon(Icons.email),
                             ),
                           ),
-
                           const SizedBox(
                               height: 20),
-
                           TextField(
                             controller:
                                 passwordController,
@@ -174,10 +141,8 @@ class _RegisterScreenState
                                   Icon(Icons.lock),
                             ),
                           ),
-
                           const SizedBox(
                               height: 30),
-
                           ElevatedButton.icon(
                             onPressed: register,
                             icon: const Icon(
@@ -191,9 +156,7 @@ class _RegisterScreenState
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 20),
-
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
