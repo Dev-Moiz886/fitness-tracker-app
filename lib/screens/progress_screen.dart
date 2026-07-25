@@ -3,25 +3,20 @@ import 'package:flutter/material.dart';
 
 class ProgressScreen
     extends StatelessWidget {
-
   const ProgressScreen(
       {super.key});
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title:
             const Text("Progress"),
       ),
-
       body: Padding(
         padding:
             const EdgeInsets.all(20),
         child: Column(
           children: [
-
             const Text(
               "Weekly Activity",
               style: TextStyle(
@@ -30,15 +25,12 @@ class ProgressScreen
                     FontWeight.bold,
               ),
             ),
-
             const SizedBox(height: 20),
-
             SizedBox(
               height: 300,
               child: BarChart(
                 BarChartData(
                   barGroups: [
-
                     BarChartGroupData(
                       x: 0,
                       barRods: [
@@ -47,7 +39,6 @@ class ProgressScreen
                         )
                       ],
                     ),
-
                     BarChartGroupData(
                       x: 1,
                       barRods: [
@@ -56,7 +47,6 @@ class ProgressScreen
                         )
                       ],
                     ),
-
                     BarChartGroupData(
                       x: 2,
                       barRods: [
@@ -65,7 +55,6 @@ class ProgressScreen
                         )
                       ],
                     ),
-
                     BarChartGroupData(
                       x: 3,
                       barRods: [
