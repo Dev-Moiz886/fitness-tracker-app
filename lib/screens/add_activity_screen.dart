@@ -3,7 +3,6 @@ import '../services/firestore_service.dart';
 
 class AddActivityScreen extends StatefulWidget {
   const AddActivityScreen({super.key});
-
   @override
   State<AddActivityScreen> createState() =>
       _AddActivityScreenState();
@@ -38,9 +37,7 @@ class _AddActivityScreenState
         steps:
             int.parse(stepsController.text),
       );
-
       if (!mounted) return;
-
       ScaffoldMessenger.of(context)
           .showSnackBar(
         const SnackBar(
@@ -50,7 +47,6 @@ class _AddActivityScreenState
       );
 
       Navigator.pop(context);
-
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(
@@ -61,7 +57,6 @@ class _AddActivityScreenState
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +69,6 @@ class _AddActivityScreenState
             const EdgeInsets.all(20),
         child: Column(
           children: [
-
             TextField(
               controller:
                   typeController,
@@ -84,9 +78,7 @@ class _AddActivityScreenState
                     "Exercise Type",
               ),
             ),
-
             const SizedBox(height: 10),
-
             TextField(
               controller:
                   durationController,
@@ -98,9 +90,7 @@ class _AddActivityScreenState
                     "Duration (min)",
               ),
             ),
-
             const SizedBox(height: 10),
-
             TextField(
               controller:
                   caloriesController,
@@ -112,9 +102,7 @@ class _AddActivityScreenState
                     "Calories",
               ),
             ),
-
             const SizedBox(height: 10),
-
             TextField(
               controller:
                   stepsController,
@@ -126,9 +114,7 @@ class _AddActivityScreenState
                     "Steps",
               ),
             ),
-
             const SizedBox(height: 20),
-
             ElevatedButton(
               onPressed:
                   saveActivity,
