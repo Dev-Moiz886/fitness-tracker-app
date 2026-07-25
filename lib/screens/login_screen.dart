@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../services/auth_service.dart';
 import '../utils/page_transition.dart';
 import 'dashboard_screen.dart';
@@ -7,7 +6,6 @@ import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
   @override
   State<LoginScreen> createState() =>
       _LoginScreenState();
@@ -41,12 +39,11 @@ class _LoginScreenState
     }
 
     try {
-
       await authService.login(
         emailController.text.trim(),
         passwordController.text.trim(),
       );
-
+      
       if (!mounted) return;
 
       Navigator.pushReplacement(
@@ -55,7 +52,6 @@ class _LoginScreenState
           const DashboardScreen(),
         ),
       );
-
     } catch (e) {
 
       ScaffoldMessenger.of(context)
@@ -68,14 +64,12 @@ class _LoginScreenState
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
 
       body: Container(
-
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -86,20 +80,14 @@ class _LoginScreenState
             ],
           ),
         ),
-
         child: SafeArea(
-
           child: SingleChildScrollView(
-
             child: Padding(
               padding:
                   const EdgeInsets.all(20),
-
               child: Column(
                 children: [
-
                   const SizedBox(height: 30),
-
                   Hero(
                     tag: "fitnessLogo",
                     child: Container(
@@ -117,9 +105,7 @@ class _LoginScreenState
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 20),
-
                   const Text(
                     "Login Your Account",
                     style: TextStyle(
@@ -129,9 +115,7 @@ class _LoginScreenState
                       color: Colors.white,
                     ),
                   ),
-
                   const SizedBox(height: 40),
-
                   Card(
                     elevation: 8,
                     shape:
@@ -146,7 +130,6 @@ class _LoginScreenState
                               20),
                       child: Column(
                         children: [
-
                           TextField(
                             controller:
                                 emailController,
@@ -157,10 +140,8 @@ class _LoginScreenState
                                   Icon(Icons.email),
                             ),
                           ),
-
                           const SizedBox(
                               height: 20),
-
                           TextField(
                             controller:
                                 passwordController,
@@ -173,10 +154,8 @@ class _LoginScreenState
                                   Icon(Icons.lock),
                             ),
                           ),
-
                           const SizedBox(
                               height: 30),
-
                           ElevatedButton.icon(
                             onPressed: login,
                             icon: const Icon(
@@ -188,9 +167,7 @@ class _LoginScreenState
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 20),
-
                   TextButton(
                     onPressed: () {
                       Navigator.push(
