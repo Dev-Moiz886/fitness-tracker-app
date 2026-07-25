@@ -135,7 +135,7 @@ Stores:
 
 ### Add Activity
 
-![Add Activity](assets/screenshots/add_activity.png)
+![Add Activity](assets/screenshots/activity.png)
 
 ### Progress Screen
 
